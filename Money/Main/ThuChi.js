@@ -1,15 +1,65 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
-
+import {
+    View, ScrollView,
+    Text, Image,
+    TextInput, TouchableOpacity, Switch
+} from 'react-native';
+const ADD = require('../Image/ADD.png');
 export default class ThuChi extends Component {
 
     render() {
         return (
             <View style={ao.baolon}>
                 <View style={ao.baonhap}>
+                    <View style={ao.baoinput}>
+                        <TextInput
+                            style={ao.input1}
+                        />
+                        <TextInput
+                            style={ao.input2}
 
+                        />
+                    </View>
+                    <View style={ao.baonut}>
+                        <View style={ao.congtac}>
+                            <Text style={{ fontSize: 20 }}>THU</Text>
+                            <Switch
+
+                            />
+                            <Text style={{ fontSize: 20 }}>CHI</Text>
+                        </View>
+
+                        <TouchableOpacity style={ao.nut}>
+                            <Image 
+                            style={{width:50, height:50}}
+                            source={ADD}/>
+                        </TouchableOpacity>
+                    </View>
                 </View>
+
                 <View style={ao.baoinfo}>
+                    <ScrollView>
+                        <Text> INFO</Text>
+                        <Text> INFO</Text>
+                        <Text> INFO</Text>
+                        <Text> INFO</Text>
+                        <Text> INFO</Text>
+                        <Text> INFO</Text>
+                        <Text> INFO</Text>
+                        <Text> INFO</Text>
+                        <Text> INFO</Text>
+                        <Text> INFO</Text>
+                        <Text> INFO</Text>
+                        <Text> INFO</Text>
+                        <Text> INFO</Text>
+                        <Text> INFO</Text>
+                        <Text> INFO</Text>
+                        <Text> INFO</Text>
+                        <Text> INFO</Text>
+                        <Text> INFO</Text>
+                        <Text> INFO</Text>
+                        <Text> INFO</Text>
+                    </ScrollView>
 
                 </View>
                 <View style={ao.baoketqua}>
@@ -28,22 +78,59 @@ const ao = {
 
     },
     baonhap: {
-        flex: 2,
-        backgroundColor: '#FF4500',
-        margin:5,
-
+        flex: 1.5,
     },
     baoinfo: {
         flex: 5,
         backgroundColor: 'yellow',
         borderWidth: 1,
         borderColor: 'black',
-        margin:5,
+        margin: 5,
     },
     baoketqua: {
         flex: 1,
         backgroundColor: '#9ACD32',
-        margin:5,
+        margin: 5,
+    },
+    baoinput: {
+        flex: 1,
+        flexDirection: 'row',
+    },
+    input1: {
+        flex: 3,
+        margin: 5,
+        padding: 5,
+        borderWidth: 2,
+        borderColor: 'black',
+        fontSize: 25,
+
+    },
+    input2: {
+        flex: 1,      
+        margin: 5,
+        padding: 5,
+        borderWidth: 2,
+        borderColor: 'black',
+        fontSize: 25,
+    },
+    baonut: {
+        flex: 1,
+        flexDirection: 'row',
+
+
+    },
+    nut: {
+        flex: 1,
+        margin: 5,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    congtac: {
+        flex: 1,
+        margin: 5,
+        justifyContent: 'center',
+        alignItems: 'center',
+        flexDirection: 'row',
 
     },
 }
