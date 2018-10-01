@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { YellowBox, AppRegistry } from 'react-native'
 YellowBox.ignoreWarnings([
-  'Remote debugger',
+    'Remote debugger',
 ])
 
 import {
@@ -28,6 +28,10 @@ export default class ThuChi extends Component {
                 { nguonChi: 'ngoc', tienChi: '1000' },
             ],
             switchValue: false,
+            testSw: '',
+
+            inputInfo: '',
+            inputTien: '',
         }
     }
     renderItemThu = ({ item, index }) => {
@@ -54,6 +58,25 @@ export default class ThuChi extends Component {
             </View>
         )
     }
+
+    thuhaychi = () => {
+        if (this.state.switchValue == false) {
+            console.log('addthu')
+            let newThu = {
+            nguonThu: this.state.inputInfo,
+            tienThu: this.state.inputTien
+            }           
+            this.setState({ ...this.state, datathu: [...this.state.datathu, newThu] })
+
+        } else {
+              console.log('addChi')
+            let newChi = {
+            nguonChi: this.state.inputInfo,
+            tienChi: this.state.inputTien
+            }           
+            this.setState({ ...this.state, datachi: [...this.state.datachi, newChi] })
+        }
+    }
     render() {
         return (
             <View style={ao.baolon}>
@@ -61,9 +84,11 @@ export default class ThuChi extends Component {
                     <View style={ao.baoinput}>
                         <TextInput
                             style={ao.input1}
+                            onChangeText={(text) => this.setState({ inputInfo: text })}
                         />
                         <TextInput
                             style={ao.input2}
+                            onChangeText={(text) => this.setState({ inputTien: text })}
 
                         />
                     </View>
@@ -81,7 +106,12 @@ export default class ThuChi extends Component {
                             <Text style={{ fontSize: 20 }}>CHI</Text>
                         </View>
 
-                        <TouchableOpacity style={ao.nut}>
+                        <TouchableOpacity
+                            style={ao.nut}
+                            onPress={() => {
+                                this.setState(this.thuhaychi())
+                            }}
+                        >
                             <Image
                                 style={{ width: 50, height: 50 }}
                                 source={ADD} />
