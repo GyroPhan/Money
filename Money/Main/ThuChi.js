@@ -1,4 +1,9 @@
 import React, { Component } from 'react';
+import { YellowBox, AppRegistry } from 'react-native'
+YellowBox.ignoreWarnings([
+  'Remote debugger',
+])
+
 import {
     View, ScrollView,
     Text, Image,
@@ -22,7 +27,7 @@ export default class ThuChi extends Component {
                 { nguonChi: 'me', tienChi: '2000' },
                 { nguonChi: 'ngoc', tienChi: '1000' },
             ],
-
+            switchValue: false,
         }
     }
     renderItemThu = ({ item, index }) => {
@@ -66,6 +71,11 @@ export default class ThuChi extends Component {
                         <View style={ao.congtac}>
                             <Text style={{ fontSize: 20 }}>THU</Text>
                             <Switch
+                                onValueChange={(value) => {
+                                    this.setState({ switchValue: value });
+                                    console.log(this.state.switchValue)
+                                }}
+                                value={this.state.switchValue}
 
                             />
                             <Text style={{ fontSize: 20 }}>CHI</Text>
