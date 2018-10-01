@@ -4,7 +4,9 @@ import {
     Text, Image,
     TextInput, TouchableOpacity, Switch
 } from 'react-native';
+
 const ADD = require('../Image/ADD.png');
+
 export default class ThuChi extends Component {
 
     render() {
@@ -37,8 +39,8 @@ export default class ThuChi extends Component {
                     </View>
                 </View>
 
-                <View style={ao.baoinfo}>
-                    <ScrollView>
+                <View style={{flex:5}}>
+                    <ScrollView style={ao.baoinfo1}>
                         <Text> INFO</Text>
                         <Text> INFO</Text>
                         <Text> INFO</Text>
@@ -48,7 +50,10 @@ export default class ThuChi extends Component {
                         <Text> INFO</Text>
                         <Text> INFO</Text>
                         <Text> INFO</Text>
-                        <Text> INFO</Text>
+                     
+                    </ScrollView>
+                    <ScrollView style={ao.baoinfo2}>
+                    <Text> INFO</Text>
                         <Text> INFO</Text>
                         <Text> INFO</Text>
                         <Text> INFO</Text>
@@ -60,12 +65,11 @@ export default class ThuChi extends Component {
                         <Text> INFO</Text>
                         <Text> INFO</Text>
                     </ScrollView>
-
                 </View>
+
                 <View style={ao.baoketqua}>
 
                 </View>
-
 
             </View>
         );
@@ -75,20 +79,13 @@ export default class ThuChi extends Component {
 const ao = {
     baolon: {
         flex: 1,
-
     },
     baonhap: {
         flex: 1.5,
     },
-    baoinfo: {
-        flex: 5,
-        backgroundColor: 'yellow',
-        borderWidth: 1,
-        borderColor: 'black',
-        margin: 5,
-    },
+  
     baoketqua: {
-        flex: 1,
+        flex: 0.7,
         backgroundColor: '#9ACD32',
         margin: 5,
     },
@@ -131,6 +128,18 @@ const ao = {
         justifyContent: 'center',
         alignItems: 'center',
         flexDirection: 'row',
+    },
+    baoinfo1:{
+        flex:1,
+        borderWidth: 1,
+        borderColor: 'black',
+        margin:5,
+    },
+    baoinfo2:{
+        flex:1,
+        borderWidth: 1,
+        borderColor: 'black',
+        margin:5,
 
     },
 }
