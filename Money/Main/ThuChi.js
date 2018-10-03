@@ -86,6 +86,11 @@ export default class ThuChi extends Component {
             })
         }
     }
+
+    tinhtoan =() =>{
+this.datathu.map();
+    }
+
     render() {
         return (
             <View style={ao.baolon}>
