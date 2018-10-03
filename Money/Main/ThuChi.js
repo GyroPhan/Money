@@ -63,10 +63,10 @@ export default class ThuChi extends Component {
         if (this.state.switchValue == false) {
             console.log('addthu')
             let newThu = {
-            nguonThu: this.state.inputInfo,
-            tienThu: this.state.inputTien
-            }           
-            this.setState({ 
+                nguonThu: this.state.inputInfo,
+                tienThu: this.state.inputTien
+            }
+            this.setState({
                 ...this.state,
                 datathu: [...this.state.datathu, newThu],
                 inputInfo: 'none',
@@ -74,12 +74,13 @@ export default class ThuChi extends Component {
             })
 
         } else {
-              console.log('addChi')
+            console.log('addChi')
             let newChi = {
-            nguonChi: this.state.inputInfo,
-            tienChi: this.state.inputTien
-            }           
-            this.setState({ ...this.state,
+                nguonChi: this.state.inputInfo,
+                tienChi: this.state.inputTien
+            }
+            this.setState({
+                ...this.state,
                 datachi: [...this.state.datachi, newChi],
                 inputInfo: 'none',
                 inputTien: 'none',
@@ -87,8 +88,14 @@ export default class ThuChi extends Component {
         }
     }
 
-    tinhtoan =() =>{
-this.datathu.map();
+    tinhtoan = () => {
+     this.state.datathu.map((a, b) => {
+         
+        console.log(this.state.datathu[b].tienThu)
+     
+        }
+        )
+      
     }
 
     render() {
@@ -108,7 +115,7 @@ this.datathu.map();
                     </View>
                     <View style={ao.baonut}>
                         <View style={ao.congtac}>
-                            <Text style={{ fontSize: 20, marginRight:10 }}>THU</Text>
+                            <Text style={{ fontSize: 20, marginRight: 10 }}>THU</Text>
                             <Switch
                                 onValueChange={(value) => {
                                     this.setState({ switchValue: value });
@@ -117,13 +124,14 @@ this.datathu.map();
                                 value={this.state.switchValue}
 
                             />
-                            <Text style={{ fontSize: 20, marginLeft:10 }}>CHI</Text>
+                            <Text style={{ fontSize: 20, marginLeft: 10 }}>CHI</Text>
                         </View>
 
                         <TouchableOpacity
                             style={ao.nut}
                             onPress={() => {
-                                this.setState(this.thuhaychi())
+                                this.setState(this.thuhaychi());
+                                this.tinhtoan()
                             }}
                         >
                             <Image
@@ -165,7 +173,7 @@ this.datathu.map();
 const ao = {
     baolon: {
         flex: 1,
-        marginTop:20
+        marginTop: 20
     },
     baonhap: {
         flex: 1.5,
