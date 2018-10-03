@@ -30,8 +30,8 @@ export default class ThuChi extends Component {
             switchValue: false,
             testSw: '',
 
-            inputInfo: '',
-            inputTien: '',
+            inputInfo: 'none',
+            inputTien: 'none',
         }
     }
     renderItemThu = ({ item, index }) => {
@@ -66,7 +66,12 @@ export default class ThuChi extends Component {
             nguonThu: this.state.inputInfo,
             tienThu: this.state.inputTien
             }           
-            this.setState({ ...this.state, datathu: [...this.state.datathu, newThu] })
+            this.setState({ 
+                ...this.state,
+                datathu: [...this.state.datathu, newThu],
+                inputInfo: 'none',
+                inputTien: 'none',
+            })
 
         } else {
               console.log('addChi')
@@ -74,7 +79,11 @@ export default class ThuChi extends Component {
             nguonChi: this.state.inputInfo,
             tienChi: this.state.inputTien
             }           
-            this.setState({ ...this.state, datachi: [...this.state.datachi, newChi] })
+            this.setState({ ...this.state,
+                datachi: [...this.state.datachi, newChi],
+                inputInfo: 'none',
+                inputTien: 'none',
+            })
         }
     }
     render() {
@@ -94,7 +103,7 @@ export default class ThuChi extends Component {
                     </View>
                     <View style={ao.baonut}>
                         <View style={ao.congtac}>
-                            <Text style={{ fontSize: 20 }}>THU</Text>
+                            <Text style={{ fontSize: 20, marginRight:10 }}>THU</Text>
                             <Switch
                                 onValueChange={(value) => {
                                     this.setState({ switchValue: value });
@@ -103,7 +112,7 @@ export default class ThuChi extends Component {
                                 value={this.state.switchValue}
 
                             />
-                            <Text style={{ fontSize: 20 }}>CHI</Text>
+                            <Text style={{ fontSize: 20, marginLeft:10 }}>CHI</Text>
                         </View>
 
                         <TouchableOpacity
@@ -151,6 +160,7 @@ export default class ThuChi extends Component {
 const ao = {
     baolon: {
         flex: 1,
+        marginTop:20
     },
     baonhap: {
         flex: 1.5,
@@ -193,7 +203,7 @@ const ao = {
         alignItems: 'center',
     },
     congtac: {
-        flex: 1,
+        flex: 2,
         margin: 5,
         justifyContent: 'center',
         alignItems: 'center',
